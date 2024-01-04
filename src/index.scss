@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+$dark1: #111;
+$dark2: #222;
+$dark3: #333;
+$dark4: #555;
+
+$light1: #fff;
+$light2: #ccc;
+
+$primary: #628edf;
+$secondary: #df6363;
+
+body{
+    padding: 0 480px;
+    background: $dark1;
+    overflow-x: hidden;
+}
+
+main{
+    display: flex;
+    gap: 40px;
+}
+
+nav{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo{
+        text-decoration: none;
+        color: $light1;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .links{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .logged-in{
+            color: $light2;
+            font-size: 14px;
+
+            span{
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
+        a{
+            font-size: 14px;
+        }
+    }
+}
+
+aside{
+    ul{
+        list-style: none;
+
+        a{
+            text-decoration: none;
+            display: block;
+        }
+
+        li{
+            padding: 18px;
+            width: 240px;
+            font-size: 16px;
+            background-color: $dark1;
+            border: 2px solid $dark2;
+            color: $dark4;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+
+            i{
+                font-size: 18px;
+                margin-right: 5px;
+            }
+        }
+
+        a:not(:last-child){
+            margin-bottom: 10px;
+        }
+
+        li.active{
+            border-color: transparent;
+            background-color: rgba($primary, 15%);
+            color: $primary;
+            font-weight: bold;
+        }
+
+        li:not(.active):hover{
+            background-color: $dark2;
+            color: $light2;
+        }
+
+        li.log-out{
+            padding: 20px;
+            border-color: rgba($secondary, 15%);
+            color: rgba($secondary, 50%);
+        }
+
+        li.log-out:hover{
+            background-color: rgba($secondary, 15%);
+            color: $secondary;
+            border-color: transparent;
+        }
+    }
+}
+
+section{
+    width: 100%;
+
+    .heading{
+        color: $light1;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .teacher, a{
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+}
+
+section:not(:last-child){
+    margin-bottom: 40px;
+}
+
+.courses{
+    .list{
+        display: flex;
+        gap: 20px;
+
+        .item{
+            width: 180px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .title{
+                font-size: 14px;
+                color: $light2;
+                text-decoration: none;
+            }
+
+            .teacher{
+                font-size: 12px;
+                color: $primary;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.news{
+    .list{
+        .item{
+            text-align: justify;
+
+            a{
+                text-decoration: none;
+            }
+
+            .top{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .title{
+                    font-size: 16px;
+                    color: $light1;
+                }
+
+                .date{
+                    font-size: 12px;
+                    color: $light2;
+                }
+            }
+
+            .message{
+                font-size: 12px;
+                color: $light2;
+                line-height: 24px;
+
+                a{
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+.weeks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title{
+        color: $light1;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .attachments{
+        color: $light2;
+        font-size: 14px;
+        list-style: none;
+
+        i{
+            font-size: 18px;
+        }
+
+        li:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+}
+
+//buttons and stuff
+
+.link{
+    text-decoration: none;
+    color: $primary;
+}
+
+.link.secondary{
+    color: $secondary;
+}
+
+.box{
+    background-color: $dark2;
+    border: 2px solid $dark3;
+    padding: 20px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.box:hover{
+    background-color: $dark3;
+    filter: brightness(1.2);
+}
+
+
+@media screen and (max-width: 1600px) {
+    body{
+        padding: 0 240px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    body{
+        padding: 0 160px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    body{
+        padding: 0 40px;
+    }
+
+    .courses .list{
+        flex-direction: column;
+
+        .item{
+            width: 100%;
+            height: 100px;
+        }
+    }
+
+    aside{
+        position: absolute;
+        z-index: 5;
+        background-color: $dark1;
+        width: 100%;
+        height: 90vh;
+        top: 10vh;
+        left: 100%;
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+
+            li{
+                border: none;
+                text-align: center;
+                text-indent: -5px;
+            }
+        }
+    }
+}
