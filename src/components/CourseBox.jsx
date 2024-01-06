@@ -1,7 +1,7 @@
 function CourseBox(props){
     return(
         <div className="item course box">
-            <a href="./course" className="title">{ props.title }</a>
+            <Link to={"./course"} className="title">{ props.title }</Link>
             <a href="#" className="lecturer">{ props.lecturer }</a>
             <button className={props.btn_hidden ? 'btn hidden' : 'btn'} disabled={props.enrolled}>{props.enrolled ? 'Already Enrolled' : 'Enroll'}</button>
         </div>
