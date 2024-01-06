@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 function CourseBox(props){
     return(
         <div className="item course box">
