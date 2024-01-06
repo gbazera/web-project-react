@@ -67,7 +67,7 @@ nav{
 
 aside{
     ul{
-        list-style: none;
+        list-style: none;;
 
         a{
             text-decoration: none;
@@ -133,10 +133,17 @@ section{
         flex-direction: column;
         gap: 20px;
 
-        .teacher, a{
+        .lecturer, a{
             font-weight: normal;
             font-size: 14px;
         }
+    }
+
+    .heading.hz{
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -144,30 +151,36 @@ section:not(:last-child){
     margin-bottom: 40px;
 }
 
-.courses{
+.my-courses{
     .list{
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
 
         .item{
-            width: 180px;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .title{
-                font-size: 14px;
-                color: $light2;
-                text-decoration: none;
-            }
-
-            .teacher{
-                font-size: 12px;
-                color: $primary;
-                text-decoration: none;
-            }
+            // width: 50%;
         }
+    }
+}
+
+.course{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    .title{
+        font-size: 14px;
+        color: $light2;
+        text-decoration: none;
+    }
+
+    .lecturer{
+        font-size: 12px;
+        color: $primary;
+        text-decoration: none;
     }
 }
 
@@ -236,7 +249,29 @@ section:not(:last-child){
     }
 }
 
+.courses{
+    .list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .item{
+            width: calc(50% - 10px);
+            height: auto;
+        }
+    }
+}
+
 //buttons and stuff
+
+.input{
+    padding: 8px 14px;
+    background-color: $dark1;
+    color: $light2;
+    border: 2px solid $dark2;
+    font-size: 14px;
+    border-radius: 5px;
+}
 
 .link{
     text-decoration: none;
@@ -247,17 +282,43 @@ section:not(:last-child){
     color: $secondary;
 }
 
+.btn{
+    background-color: $primary;
+    color: $light1;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: filter .3s;
+}
+
+.btn:hover{
+    filter: brightness(.8);
+}
+
+.btn[disabled]{
+    background-color: $secondary;
+    filter: brightness(.5);
+}
+
+.btn.hidden{
+    display: none;
+}
+
 .box{
     background-color: $dark2;
     border: 2px solid $dark3;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
     transition: .3s;
 }
 
 .box:hover{
     background-color: $dark3;
     filter: brightness(1.2);
+    box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.25);
 }
 
 

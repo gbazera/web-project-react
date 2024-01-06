@@ -1,6 +1,6 @@
 function Course(){
     return(
-        <section className="course">
+        <section>
             <div className="heading">
                 <p>Web Programming 1 (ENG)</p>
                 <p className="teacher">Lecturer: <a href="#" className="link">Giorgi Kakashvili</a></p>

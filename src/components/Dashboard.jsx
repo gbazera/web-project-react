@@ -1,18 +1,14 @@
+import CourseBox from "./CourseBox";
+
 function Dashboard(){
     return(
         <div className="dashboard">
-            <section className="courses">
+            <section className="my-courses">
                 <p className="heading">My Courses</p>
                 <div className="content">
                     <div className="list">
-                        <div className="item box">
-                            <a href="./course" className="title">Web Programming 1 (ENG)</a>
-                            <a href="#" className="teacher">Giorgi Kakashvili</a>
-                        </div>
-                        <div className="item box">
-                            <a href="./course" className="title">Web Programming 1 (ENG)</a>
-                            <a href="#" className="teacher">Giorgi Kakashvili</a>
-                        </div>
+                        <CourseBox title='Web Programming 1 (ENG)' lecturer='Giorgi Kakashvili' btn_hidden/>
+                        <CourseBox title='HUM054 German Language A1.1 (GEO)' lecturer='Nino Gogelia' btn_hidden/>
                     </div>
                 </div>
             </section>
