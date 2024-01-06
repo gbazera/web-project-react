@@ -17,8 +17,8 @@ function App() {
           
             <Routes>
               <Route index element={<Dashboard />} />
-              <Route path="courses" element={<Courses />} />
-              <Route path="course" element={<Course />} />
+              <Route path="../courses" element={<Courses />} />
+              <Route path="../course" element={<Course />} />
               <Route path="*" element={<section><p className="heading">Page not found.</p></section>} />
             </Routes>
           
