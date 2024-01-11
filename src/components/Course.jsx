@@ -1,9 +1,16 @@
-function Course(){
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+function Course(props){
+    const {id, formattedTitle} = useParams();
+
+    const courses = JSON.parse(localStorage.getItem('courses')) || [];
+    const course = courses[id]
     return(
         <section>
             <div className="heading">
-                <p>Web Programming 1 (ENG)</p>
-                <p className="teacher">Lecturer: <a href="#" className="link">Giorgi Kakashvili</a></p>
+                <p>{course.title}</p>
+                <p className="lecturer">Lecturer: <a href="#" className="link">{course.lecturer}</a></p>
             </div>
             <div className="content">
                 <div className="weeks">

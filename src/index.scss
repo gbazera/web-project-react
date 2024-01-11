@@ -36,11 +36,20 @@ nav{
     align-items: center;
     justify-content: space-between;
 
-    .logo{
-        text-decoration: none;
-        color: $light1;
-        font-size: 20px;
-        text-transform: uppercase;
+    .left{
+        display: flex;
+        gap: 10px;
+
+        .logo{
+            text-decoration: none;
+            color: $light1;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .burger{
+            display: none;
+        }
     }
 
     .links{
@@ -257,9 +266,31 @@ section:not(:last-child){
 
         .item{
             width: calc(50% - 10px);
-            height: auto;
+            height: auto !important;
         }
     }
+}
+
+.grade{
+    color: $light2;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+
+    a{
+        text-decoration: none;
+        color: $light2;
+    }
+
+    span{
+        font-weight: bold;
+        margin-right: 6px;
+    }
+}
+
+.grade:not(:last-child),
+.news .item:not(:last-child){
+    margin-bottom: 10px;
 }
 
 //buttons and stuff
@@ -339,6 +370,16 @@ section:not(:last-child){
         padding: 0 40px;
     }
 
+    nav .left{
+        .burger{
+            display: inline-block;
+            background-color: transparent;
+            border: none;
+            color: $light1;
+            font-size: 24px;
+        }
+    }
+
     .courses .list{
         flex-direction: column;
 
@@ -355,7 +396,8 @@ section:not(:last-child){
         width: 100%;
         height: 90vh;
         top: 10vh;
-        left: 100%;
+        left: -100%;
+        transition: left .3s ease-in-out;
 
         ul{
             display: flex;
@@ -369,5 +411,9 @@ section:not(:last-child){
                 text-indent: -5px;
             }
         }
+    }
+
+    aside.active{
+        left: 0;
     }
 }

@@ -1,20 +1,16 @@
 import { useState } from "react";
 import CourseBox from "./CourseBox";
 
-function Courses(){
+function Courses(props){
+    const courses = props.courses;
+    // console.log(courses)
     const [searchTerm, setSearchTerm] = useState('');
-    const coursesData = [
-        { title: 'Web Programming 1 (ENG)', lecturer: 'Giorgi Kakashvili', enrolled: true },
-        { title: 'CS105 Aspects of Computer Science and Technology', lecturer: 'David Razmadze' },
-        { title: 'CS104 Principles of Programming - Nika Narushvili', lecturer: 'Nika Narushvili' },
-        { title: 'HUM054 German Language A1.1 (GEO)', lecturer: 'Nino Gogelia', enrolled: true },
-    ];
 
     const filteredCourses = searchTerm.trim() !== ''
-    ? coursesData.filter((course)=>
+    ? courses.filter((course)=>
         course.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    : coursesData;
+    : courses;
 
     return(
         <section className="courses">
@@ -32,12 +28,10 @@ function Courses(){
             </div>
             <div className="content">
                 <div className="list">
-                    {filteredCourses.map((course, index)=>(
+                    {filteredCourses.map(course=>(
                         <CourseBox
-                            key={index}
-                            title={course.title}
-                            lecturer={course.lecturer}
-                            enrolled={course.enrolled}
+                            key={course.id}
+                            course={course}
                         />
                     ))}
                 </div>
