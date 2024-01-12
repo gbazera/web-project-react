@@ -16,7 +16,7 @@ function CourseBox(props) {
 				{course.lecturer}
 			</a>
 			<button
-				className={course.btn_hidden ? 'btn hidden' : 'btn'}
+				className={props.btn_hidden ? 'btn hidden' : 'btn'}
 				disabled={course.enrolled}
 			>
 				{course.enrolled ? 'Already Enrolled' : 'Enroll'}
