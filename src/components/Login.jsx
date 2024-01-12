@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Login() {
 	const login = () => {
 		localStorage.setItem('loggedIn', JSON.stringify(true));
-		useNavigate(index, { replace: true });
+		navigate(index, { replace: true });
 	};
 
 	return (
