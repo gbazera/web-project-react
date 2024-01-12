@@ -4,8 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 function Login() {
 	const login = () => {
 		localStorage.setItem('loggedIn', JSON.stringify(true));
-		navigate(index, { replace: true });
+		window.location = '/'
 	};
+
+	useEffect(()=>{
+		if(JSON.parse(localStorage.getItem('loggedIn')) == true){
+			login()
+		}
+	})
 
 	return (
 		<section className="login-page">

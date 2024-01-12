@@ -117,9 +117,9 @@ function App() {
 							path="/login"
 							element={
 								<>
-									<LoggedInRoute>
+									{/* <LoggedInRoute> */}
 										<Login />
-									</LoggedInRoute>
+									{/* </LoggedInRoute> */}
 								</>
 							}
 						/>
