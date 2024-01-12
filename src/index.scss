@@ -293,7 +293,38 @@ section:not(:last-child){
     margin-bottom: 10px;
 }
 
+.login-page{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    height: 70vh;
+
+    .heading{
+        margin-bottom: 10px;
+    }
+
+    // input{
+    //     padding: 10px;
+
+    // }
+}
+
+/// /
+/// /
+/// /
+/// /
+///
+//
 //buttons and stuff
+/// /
+/// //
+/// /
+/// /
+/// /
+/// /
 
 .input{
     padding: 8px 14px;
