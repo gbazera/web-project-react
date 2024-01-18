@@ -4,6 +4,22 @@ function CourseBox(props) {
 	const course = props.course;
 	// console.log(props)
 	let formattedTitle = course.title.replace(/\s+/g, '-').toLowerCase();
+
+	let courses = JSON.parse(localStorage.getItem('courses')) || [];
+
+    const toggleEnrollment=()=>{
+		// Find the index of the current course
+		const courseIndex = courses.findIndex((c) => c.id === course.id);
+
+		// Toggle enrollment status for the current course
+		courses[courseIndex].enrolled = !courses[courseIndex].enrolled;
+	
+		// Save the updated courses back to localStorage
+		localStorage.setItem('courses', JSON.stringify(courses));
+
+		window.location = '/course/' + course.id + '/' + formattedTitle
+	}
+
 	return (
 		<div className="item course box">
 			<Link
@@ -16,6 +32,7 @@ function CourseBox(props) {
 				{course.lecturer}
 			</a>
 			<button
+				onClick={toggleEnrollment}
 				className={props.btn_hidden ? 'btn hidden' : 'btn'}
 				disabled={course.enrolled}
 			>

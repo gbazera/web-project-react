@@ -34,36 +34,43 @@ function App() {
 		return isLoggedIn ? <Navigate to="/" replace /> : children;
 	}
 
-	const [courses, setCourses] = useState([
-		{
-			id: 0,
-			title: 'Web Programming 1 (ENG)',
-			lecturer: 'Giorgi Kakashvili',
-			enrolled: true,
-		},
-		{
-			id: 1,
-			title: 'CS105 Aspects of Computer Science and Technology (ENG)',
-			lecturer: 'David Razmadze',
-			enrolled: false,
-		},
-		{
-			id: 2,
-			title: 'CS104 Principles of Programming (ENG)',
-			lecturer: 'Nika Narushvili',
-			enrolled: true,
-		},
-		{
-			id: 3,
-			title: 'HUM054 German Language A1.1 (GEO)',
-			lecturer: 'Nino Gogelia',
-			enrolled: false,
-		},
-	]);
+	const [courses, setCourses] = useState(
+		JSON.parse(localStorage.getItem('courses')) || [
+			{
+				id: 0,
+				title: 'Web Programming 1 (ENG)',
+				lecturer: 'Giorgi Kakashvili',
+				enrolled: true,
+			},
+			{
+				id: 1,
+				title: 'CS105 Aspects of Computer Science and Technology (ENG)',
+				lecturer: 'David Razmadze',
+				enrolled: false,
+			},
+			{
+				id: 2,
+				title: 'CS104 Principles of Programming (ENG)',
+				lecturer: 'Nika Narushvili',
+				enrolled: true,
+			},
+			{
+				id: 3,
+				title: 'HUM054 German Language A1.1 (GEO)',
+				lecturer: 'Nino Gogelia',
+				enrolled: false,
+			},
+		]
+	);
 
 	useEffect(() => {
 		localStorage.setItem('courses', JSON.stringify(courses));
 	}, [courses]);
+
+	useEffect(() => {
+		const storedCourses = localStorage.getItem('courses');
+		setCourses(JSON.parse(storedCourses));
+	}, []);
 
 	const [grades, setGrades] = useState([
 		{ id: 0, grade: 94 },
@@ -110,7 +117,7 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<Header loggedIn={loggedIn}/>
+				<Header loggedIn={loggedIn} />
 				<main>
 					<Routes>
 						<Route
@@ -118,7 +125,7 @@ function App() {
 							element={
 								<>
 									{/* <LoggedInRoute> */}
-										<Login />
+									<Login />
 									{/* </LoggedInRoute> */}
 								</>
 							}

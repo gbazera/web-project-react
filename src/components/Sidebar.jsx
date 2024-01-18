@@ -6,7 +6,7 @@ function Sidebar(){
 
     const logOut=()=>{
         localStorage.setItem('loggedIn', JSON.stringify(false));
-        useNavigate('/login', {replace: true})
+        window.location = '/login'
     }
 
     return(
