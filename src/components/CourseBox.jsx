@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function CourseBox(props) {
 	const course = props.course;
@@ -17,7 +17,7 @@ function CourseBox(props) {
 		// Save the updated courses back to localStorage
 		localStorage.setItem('courses', JSON.stringify(courses));
 
-		useNavigate('/course/' + course.id + '/' + formattedTitle, {replace: true})
+		window.location = '/course/' + course.id + '/' + formattedTitle
 	}
 
 	return (
